@@ -1,28 +1,34 @@
 import React from 'react';
-import { LogOut, QrCode } from 'lucide-react';
+import { LogOut, QrCode, Crosshair, Navigation } from 'lucide-react';
 import { ControlButton } from './ControlButton';
-import { SpeedLevel } from '../types';
+import { SensitivityMode } from '../types';
+import { Logo } from './Logo';
 
 interface HeaderProps {
   roomId: string;
   onExit: () => void;
-  speed: SpeedLevel;
-  onToggleSpeed: () => void;
+  sensitivity: SensitivityMode;
+  onToggleSensitivity: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   roomId,
   onExit,
-  speed,
-  onToggleSpeed
+  sensitivity,
+  onToggleSensitivity
 }) => {
+  const isPrecision = sensitivity === SensitivityMode.PRECISION;
+
   return (
     <div className="flex flex-col gap-6 w-full max-w-md mx-auto p-4 pb-2">
       <div className="flex justify-between items-center">
-         <h1 className="text-2xl font-bold tracking-tight">
-          <span className="text-white">Touch</span>
-          <span className="text-brand-accent">Mouse</span>
-        </h1>
+        <div className="flex items-center gap-3">
+          <Logo className="w-8 h-8" />
+          <h1 className="text-2xl font-bold tracking-tight leading-none">
+            <span className="text-white">Touch</span>
+            <span className="text-brand-accent">Mouse</span>
+          </h1>
+        </div>
         <button 
           onClick={onExit}
           className="p-2 rounded-full bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-colors"
@@ -43,18 +49,23 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        {/* Speed Toggle Button */}
+        {/* Sensitivity Toggle Button */}
         <ControlButton
-          onClick={onToggleSpeed}
-          label="Toggle Speed"
+          onClick={onToggleSensitivity}
+          label={isPrecision ? "Modo Precisión" : "Modo Navegación"}
           variant="action"
-          className="w-20 h-20"
+          className="w-24 h-20"
+          isActive={true} 
           icon={
-            <div className="flex flex-col items-center">
-              <div className="flex items-center">
-                 <span className="text-gray-400 mr-1">=</span>
-                 <span className="text-brand-accent text-2xl font-bold">X{speed}</span>
-              </div>
+            <div className="flex flex-col items-center justify-center">
+              {isPrecision ? (
+                 <Crosshair size={24} className="mb-1" />
+              ) : (
+                 <Navigation size={24} className="mb-1" />
+              )}
+              <span className="text-[10px] uppercase font-bold tracking-tighter">
+                {isPrecision ? "Precisión" : "Navegar"}
+              </span>
             </div>
           }
         />

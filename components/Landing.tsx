@@ -1,5 +1,6 @@
 import React from 'react';
-import { Smartphone, Monitor, MousePointer2 } from 'lucide-react';
+import { Smartphone, Monitor } from 'lucide-react';
+import { Logo } from './Logo';
 
 interface LandingProps {
   onCreateRoom: () => void;
@@ -10,8 +11,8 @@ export const Landing: React.FC<LandingProps> = ({ onCreateRoom, onJoinRoom }) =>
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] w-full max-w-md mx-auto p-6 gap-8 animate-in fade-in duration-500">
       <div className="text-center space-y-2 mb-8">
-        <div className="bg-brand-card/50 p-4 rounded-full inline-block mb-4 shadow-glow border border-brand-accent/20">
-          <MousePointer2 size={48} className="text-brand-accent" />
+        <div className="bg-brand-card/50 p-6 rounded-full inline-block mb-4 shadow-glow border border-brand-accent/20">
+          <Logo className="w-20 h-20" />
         </div>
         <h1 className="text-4xl font-bold tracking-tight text-white">
           Touch<span className="text-brand-accent">Mouse</span>

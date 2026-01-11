@@ -4,13 +4,13 @@ import { ActionRow } from './components/ActionRow';
 import { DirectionPad } from './components/DirectionPad';
 import { Landing } from './components/Landing';
 import { Receiver } from './components/Receiver';
-import { ConnectionState, MouseAction, Direction, SpeedLevel, AppMode, RemoteMessage } from './types';
+import { ConnectionState, MouseAction, Direction, SensitivityMode, AppMode, RemoteMessage } from './types';
 
 const App: React.FC = () => {
   const [appMode, setAppMode] = useState<AppMode>(AppMode.LANDING);
   const [roomId, setRoomId] = useState<string>('');
   const [connectionState, setConnectionState] = useState<ConnectionState>(ConnectionState.DISCONNECTED);
-  const [speed, setSpeed] = useState<SpeedLevel>(1);
+  const [sensitivity, setSensitivity] = useState<SensitivityMode>(SensitivityMode.NAVIGATION);
   const [activeAction, setActiveAction] = useState<MouseAction | null>(null);
   const [lastLog, setLastLog] = useState<string>("");
   const [receivedMessage, setReceivedMessage] = useState<RemoteMessage | null>(null);
@@ -67,8 +67,8 @@ const App: React.FC = () => {
     setLastLog("");
   };
 
-  const toggleSpeed = () => {
-    setSpeed(prev => (prev === 1 ? 2 : prev === 2 ? 3 : 1) as SpeedLevel);
+  const toggleSensitivity = () => {
+    setSensitivity(prev => prev === SensitivityMode.NAVIGATION ? SensitivityMode.PRECISION : SensitivityMode.NAVIGATION);
     if (navigator.vibrate) navigator.vibrate(50);
   };
 
@@ -90,7 +90,9 @@ const App: React.FC = () => {
 
   const handleMove = (direction: Direction) => {
     setLastLog(`Moviendo ${direction}`);
-    sendMessage('MOVE', { direction, speed });
+    // Map SensitivityMode to speed value (1 = Slow/Precision, 3 = Fast/Navigation)
+    const speedValue = sensitivity === SensitivityMode.PRECISION ? 1 : 3;
+    sendMessage('MOVE', { direction, speed: speedValue });
   };
 
   // ----------------------------------------------------------------------
@@ -129,8 +131,8 @@ const App: React.FC = () => {
           <Header 
             roomId={roomId}
             onExit={handleExit}
-            speed={speed}
-            onToggleSpeed={toggleSpeed}
+            sensitivity={sensitivity}
+            onToggleSensitivity={toggleSensitivity}
           />
         </div>
 

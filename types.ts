@@ -31,7 +31,10 @@ export enum AppMode {
   RECEIVER = 'RECEIVER'
 }
 
-export type SpeedLevel = 1 | 2 | 3;
+export enum SensitivityMode {
+  PRECISION = 'PRECISION',
+  NAVIGATION = 'NAVIGATION'
+}
 
 export interface RemoteMessage {
   type: 'MOVE' | 'ACTION';
