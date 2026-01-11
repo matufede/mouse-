@@ -1,0 +1,5 @@
+{
+  "name": "TouchMouse",
+  "description": "Una aplicación accesible que transforma tu dispositivo móvil en un controlador de mouse funcional, diseñada para personas con movilidad reducida.",
+  "requestFramePermissions": []
+}
