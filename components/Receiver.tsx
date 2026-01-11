@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MousePointer2, ScanLine, Wifi, Loader2, QrCode } from 'lucide-react';
+import { MousePointer2, Monitor, Wifi, Loader2 } from 'lucide-react';
 import { ConnectionState, RemoteMessage, MouseAction } from '../types';
 
 interface ReceiverProps {
@@ -52,13 +52,13 @@ export const Receiver: React.FC<ReceiverProps> = ({ onJoin, onExit, connectionSt
           
           <div className="flex justify-center mb-6">
             <div className="bg-brand-dark p-4 rounded-full border border-gray-700">
-              <ScanLine size={48} className="text-white" />
+              <Monitor size={48} className="text-white" />
             </div>
           </div>
 
           <h2 className="text-2xl font-bold text-center text-white mb-2">Unirse a Sala</h2>
-          <p className="text-gray-400 text-center mb-8 text-sm">
-            Ingresa el ID generado por el controlador o escanea el QR.
+          <p className="text-gray-400 text-center mb-8 text-sm leading-relaxed">
+            Ingresa el ID del controlador. Únete desde el navegador del dispositivo que deseas controlar, asegurándote de estar en la misma red Wi-Fi.
           </p>
 
           <div className="space-y-4">
@@ -73,15 +73,6 @@ export const Receiver: React.FC<ReceiverProps> = ({ onJoin, onExit, connectionSt
                 className="w-full bg-brand-dark border border-gray-700 text-white text-3xl font-mono text-center py-4 rounded-2xl focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all uppercase placeholder-gray-700"
               />
             </div>
-
-            <button
-              type="button"
-              onClick={() => alert("Escáner de QR: Funcionalidad pendiente de implementación")}
-              className="w-full py-3 bg-brand-card hover:bg-brand-card/80 border border-white/10 text-gray-300 font-medium rounded-2xl flex items-center justify-center gap-2 transition-all active:scale-95 group"
-            >
-              <QrCode size={20} className="text-brand-accent group-hover:scale-110 transition-transform" />
-              Escanear código QR
-            </button>
 
             <button
               onClick={() => onJoin(inputId)}

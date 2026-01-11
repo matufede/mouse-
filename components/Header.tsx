@@ -1,5 +1,5 @@
 import React from 'react';
-import { LogOut, QrCode, Crosshair, Navigation } from 'lucide-react';
+import { LogOut, Crosshair, Navigation } from 'lucide-react';
 import { ControlButton } from './ControlButton';
 import { SensitivityMode } from '../types';
 import { Logo } from './Logo';
@@ -45,7 +45,6 @@ export const Header: React.FC<HeaderProps> = ({
           <span className="text-xs text-brand-accent uppercase font-bold tracking-widest mb-1">Sala ID</span>
           <div className="flex items-center gap-2">
             <span className="text-3xl font-mono text-white font-bold tracking-wider">{roomId}</span>
-            <QrCode size={18} className="text-brand-accent/70" />
           </div>
         </div>
 
