@@ -27,6 +27,7 @@ export enum ConnectionState {
 
 export enum AppMode {
   LANDING = 'LANDING',
+  SCANNING = 'SCANNING',
   CONTROLLER = 'CONTROLLER',
   RECEIVER = 'RECEIVER'
 }
@@ -37,7 +38,13 @@ export enum SensitivityMode {
 }
 
 export interface RemoteMessage {
-  type: 'MOVE' | 'ACTION';
+  type: 'MOVE' | 'ACTION' | 'ADVERTISE' | 'CONNECT';
   payload: any;
   roomId: string;
+}
+
+export interface DeviceInfo {
+  id: string;
+  name: string;
+  lastSeen: number;
 }

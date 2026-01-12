@@ -5,7 +5,7 @@ import { SensitivityMode } from '../types';
 import { Logo } from './Logo';
 
 interface HeaderProps {
-  roomId: string;
+  roomId: string; // Used as Device Name
   onExit: () => void;
   sensitivity: SensitivityMode;
   onToggleSensitivity: () => void;
@@ -39,12 +39,12 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       <div className="flex justify-between items-center gap-4">
-        {/* Room Info */}
+        {/* Device Connected Info */}
         <div className="flex-1 h-20 bg-brand-card rounded-3xl border border-brand-accent/30 flex flex-col items-center justify-center relative overflow-hidden group">
           <div className="absolute inset-0 bg-brand-accent/5" />
-          <span className="text-xs text-brand-accent uppercase font-bold tracking-widest mb-1">Sala ID</span>
-          <div className="flex items-center gap-2">
-            <span className="text-3xl font-mono text-white font-bold tracking-wider">{roomId}</span>
+          <span className="text-[10px] text-brand-accent uppercase font-bold tracking-widest mb-1">Conectado a</span>
+          <div className="flex items-center gap-2 px-2 w-full justify-center">
+            <span className="text-lg font-mono text-white font-bold tracking-tight truncate">{roomId}</span>
           </div>
         </div>
 

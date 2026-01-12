@@ -30,8 +30,8 @@ export const Landing: React.FC<LandingProps> = ({ onCreateRoom, onJoinRoom }) =>
               <Smartphone size={32} />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white">Modo Controlador</h3>
-              <p className="text-sm text-gray-400">Crear una sala y usar este dispositivo como mouse</p>
+              <h3 className="text-xl font-bold text-white">Buscar Dispositivos</h3>
+              <p className="text-sm text-gray-400">Usar este celular como mouse</p>
             </div>
           </div>
           <div className="absolute right-0 top-0 bottom-0 w-1 bg-brand-accent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -47,7 +47,7 @@ export const Landing: React.FC<LandingProps> = ({ onCreateRoom, onJoinRoom }) =>
             </div>
             <div>
               <h3 className="text-xl font-bold text-white">Modo Pantalla</h3>
-              <p className="text-sm text-gray-400">Unirse para recibir control en este dispositivo</p>
+              <p className="text-sm text-gray-400">Hacer visible este dispositivo</p>
             </div>
           </div>
         </button>
