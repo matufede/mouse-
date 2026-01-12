@@ -1,6 +1,6 @@
 import React from 'react';
 import { Monitor, RefreshCw, Wifi, ChevronLeft } from 'lucide-react';
-import { DeviceInfo } from '../types';
+import { DeviceInfo } from '../types.ts';
 
 interface DeviceScannerProps {
   devices: DeviceInfo[];

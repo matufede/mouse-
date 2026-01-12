@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Header } from './components/Header';
-import { ActionRow } from './components/ActionRow';
-import { DirectionPad } from './components/DirectionPad';
-import { Landing } from './components/Landing';
-import { Receiver } from './components/Receiver';
-import { DeviceScanner } from './components/DeviceScanner';
-import { ConnectionState, MouseAction, Direction, SensitivityMode, AppMode, RemoteMessage, DeviceInfo } from './types';
+import { Header } from './components/Header.tsx';
+import { ActionRow } from './components/ActionRow.tsx';
+import { DirectionPad } from './components/DirectionPad.tsx';
+import { Landing } from './components/Landing.tsx';
+import { Receiver } from './components/Receiver.tsx';
+import { DeviceScanner } from './components/DeviceScanner.tsx';
+import { ConnectionState, MouseAction, Direction, SensitivityMode, AppMode, RemoteMessage, DeviceInfo } from './types.ts';
 
 const App: React.FC = () => {
   const [appMode, setAppMode] = useState<AppMode>(AppMode.LANDING);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Target } from 'lucide-react';
-import { ControlButton } from './ControlButton';
-import { Direction } from '../types';
+import { ControlButton } from './ControlButton.tsx';
+import { Direction } from '../types.ts';
 
 interface DirectionPadProps {
   onMove: (direction: Direction) => void;

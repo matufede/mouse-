@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MousePointer2, Monitor, Wifi } from 'lucide-react';
-import { ConnectionState, RemoteMessage, MouseAction } from '../types';
+import { ConnectionState, RemoteMessage, MouseAction } from '../types.ts';
 
 interface ReceiverProps {
   myDeviceId: string;

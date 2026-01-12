@@ -1,6 +1,6 @@
 import React from 'react';
 import { Smartphone, Monitor } from 'lucide-react';
-import { Logo } from './Logo';
+import { Logo } from './Logo.tsx';
 
 interface LandingProps {
   onCreateRoom: () => void;

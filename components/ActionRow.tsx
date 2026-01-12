@@ -1,7 +1,7 @@
 import React from 'react';
 import { MousePointer2, MousePointerClick, Grip } from 'lucide-react';
-import { ControlButton } from './ControlButton';
-import { MouseAction } from '../types';
+import { ControlButton } from './ControlButton.tsx';
+import { MouseAction } from '../types.ts';
 
 interface ActionRowProps {
   onAction: (action: MouseAction) => void;

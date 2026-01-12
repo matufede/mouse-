@@ -1,8 +1,8 @@
 import React from 'react';
 import { LogOut, Crosshair, Navigation } from 'lucide-react';
-import { ControlButton } from './ControlButton';
-import { SensitivityMode } from '../types';
-import { Logo } from './Logo';
+import { ControlButton } from './ControlButton.tsx';
+import { SensitivityMode } from '../types.ts';
+import { Logo } from './Logo.tsx';
 
 interface HeaderProps {
   roomId: string; // Used as Device Name
