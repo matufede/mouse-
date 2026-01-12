@@ -13,7 +13,7 @@
               brand: {
                 dark: '#1a1a1a',
                 card: '#2d2d2d',
-                accent: '#f59e0b', // Amber-500 equivalent to the images
+                accent: '#f59e0b',
                 text: '#ffffff',
               }
             },
@@ -25,31 +25,37 @@
       }
     </script>
     <style>
-      /* Disable select to prevent accidental text selection while spamming buttons */
       body {
         user-select: none;
         -webkit-user-select: none;
         touch-action: manipulation;
         background-color: #121212;
+        overflow: hidden; /* Prevent scrolling on the app container */
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react-dom": "https://esm.sh/react-dom@^19.2.3"
-  }
-}
-</script>
-<!-- Add Babel for browser-side JSX compilation -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</head>
+    <!-- Import Map: Fix Dual React Issue by forcing version 18.2.0 everywhere -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react/": "https://esm.sh/react@18.2.0/",
+        "react-dom": "https://esm.sh/react-dom@18.2.0",
+        "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react@0.292.0?deps=react@18.2.0"
+      }
+    }
+    </script>
+    <!-- Babel for in-browser compilation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
   <body>
     <div id="root"></div>
-    <!-- Load the app entry point with Babel -->
+    
+    <!-- 
+      Main Application Script 
+      Loaded as a single entry point to avoid browser module resolution issues with .tsx files 
+    -->
     <script type="text/babel" data-type="module" data-presets="react,typescript" src="./index.tsx"></script>
   </body>
 </html>
